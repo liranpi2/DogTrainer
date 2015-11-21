@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">DogTrainer</string>
+    <string name="action_settings">Settings</string>
+
 
     <string name="Title">WTF1</string>
     <string name="Body">WTF2</string>
-    <string name="action_settings">Settings</string>
+
 </resources>
