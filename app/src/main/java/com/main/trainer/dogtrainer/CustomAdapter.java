@@ -40,22 +40,24 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View currentView, ViewGroup parent) {
-       LayoutInflater inflater = (LayoutInflater) mContext
-               .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(currentView ==null) {
+            // Inflating means to read the XML file that describes a layout (or GUI element) and to create the actual objects that correspond to it
+            inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        // get view
-        View rowView = inflater.inflate(R.layout.each_list_item,parent,false);
+            // get view
+            currentView = inflater.inflate(R.layout.each_list_item, parent, false);
+        }
         Response.QuestionsEntity item = (Response.QuestionsEntity) getItem(position);
 
         // get view elements
-        TextView question = (TextView) rowView.findViewById(R.id.questionText);
-        TextView answer = (TextView) rowView.findViewById(R.id.questionType);
+        TextView question = (TextView) currentView.findViewById(R.id.questionText);
+        TextView answer = (TextView) currentView.findViewById(R.id.questionType);
 
         // set view elements
         question.setText(item.getQuestion());
         answer.setText(item.getAnswer());
 
-        return rowView;
+        return currentView;
 
     }
 }
