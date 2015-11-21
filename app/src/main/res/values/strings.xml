@@ -5,5 +5,6 @@
 
     <string name="Title">WTF1</string>
     <string name="Body">WTF2</string>
+    <string name="ButtonText">Load Template</string>
 
 </resources>
