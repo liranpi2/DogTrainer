@@ -12,15 +12,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
+    <RadioButton
         android:id="@+id/questionType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/questionRadio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
 </LinearLayout>
-<!--
+    <!--
 
--->
+    -->

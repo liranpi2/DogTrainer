@@ -1,5 +1,7 @@
 package com.main.trainer.dogtrainer;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.net.Uri;
@@ -26,7 +28,7 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-     private static final int LOCAL_REQ_OPEN = 5 ;
+    private static final int LOCAL_REQ_OPEN = 5 ;
     private static final int DRIVE_REQ_OPEN = 1 ;
     GoogleApiClient mGoogleApiClient;
 
@@ -64,10 +66,10 @@ public class MainActivity extends ActionBarActivity {
                 {
                     System.out.print("error :" +ex.getMessage());
                 }
-
             }
         };
         btnLoad.setOnClickListener(oclbtnLoad);
+        //datePickerView = new DateView(MainActivity.this);
 
     }
 
@@ -77,18 +79,25 @@ public class MainActivity extends ActionBarActivity {
         switch (requestCode)
         {
             case LOCAL_REQ_OPEN:
-                ListView listview = (ListView) findViewById(R.id.questionlist);
-                Response responseObj;
-                CustomAdapter adapter;
-                Gson gson;
+                try
+                {
+                    ListView listview = (ListView) findViewById(R.id.questionlist);
+                    Response responseObj;
+                    CustomAdapter adapter;
+                    Gson gson;
 
-                Uri uri = data.getData();
-                String content = getFileContent(uri.getPath());
+                    Uri uri = data.getData();
+                    String content = getFileContent(uri.getPath());
 
-                gson = new Gson();
-                responseObj = gson.fromJson(content,Response.class);
-                adapter = new CustomAdapter(responseObj.getQuestions(),MainActivity.this);
-                listview.setAdapter(adapter);
+                    gson = new Gson();
+                    responseObj = gson.fromJson(content, Response.class);
+                    adapter = new CustomAdapter(responseObj.getQuestions(),MainActivity.this);
+                    listview.setAdapter(adapter);
+                }
+                catch (Exception ex)
+                {
+                    System.out.println("error: "+ex.getMessage());
+                }
                 break;
 
             case DRIVE_REQ_OPEN:
@@ -103,7 +112,6 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
-
     private String getFileContent(String path) {
         File sdcard = Environment.getExternalStorageDirectory();
 
@@ -127,7 +135,6 @@ public class MainActivity extends ActionBarActivity {
         }
         return text.toString();
     }
-
 
     @Override
     protected void onRestart() {

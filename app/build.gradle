@@ -25,6 +25,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.immutables:gson:2.1.0'
     compile 'com.google.android.gms:play-services-drive:8.3.0'
+    compile 'com.github.citux:datetimepicker:0.1.2'
 
 
 }

@@ -9,8 +9,14 @@ public class Response {
 
 
     /**
-     * question : name
-     * answer : text
+     * id : 1.0
+     * question_male : תאריך תחילת אבחון
+     * question_female :
+     * answer : datetime
+     * options :
+     * reference_id : 0
+     * category : תיאור הכלב
+     * comment :
      */
 
     private List<QuestionsEntity> questions;
@@ -24,23 +30,77 @@ public class Response {
     }
 
     public static class QuestionsEntity {
-        private String question;
+        private double id;
+        private String question_male;
+        private String question_female;
         private String answer;
+        private String options;
+        private double reference_id;
+        private String category;
+        private String comment;
 
-        public void setQuestion(String question) {
-            this.question = question;
+        public void setId(double id) {
+            this.id = id;
+        }
+
+        public void setQuestion_male(String question_male) {
+            this.question_male = question_male;
+        }
+
+        public void setQuestion_female(String question_female) {
+            this.question_female = question_female;
         }
 
         public void setAnswer(String answer) {
             this.answer = answer;
         }
 
-        public String getQuestion() {
-            return question;
+        public void setOptions(String options) {
+            this.options = options;
+        }
+
+        public void setReference_id(int reference_id) {
+            this.reference_id = reference_id;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+
+        public double getId() {
+            return id;
+        }
+
+        public String getQuestion_male() {
+            return question_male;
+        }
+
+        public String getQuestion_female() {
+            return question_female;
         }
 
         public String getAnswer() {
             return answer;
+        }
+
+        public String getOptions() {
+            return options;
+        }
+
+        public double getReference_id() {
+            return reference_id;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public String getComment() {
+            return comment;
         }
     }
 }
