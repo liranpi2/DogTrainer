@@ -1,4 +1,4 @@
-package com.main.trainer.dogtrainer;
+package com.main.trainer.dogtrainer.Model;
 
 import android.app.Application;
 import android.content.Intent;
@@ -14,6 +14,8 @@ public class DogTrainerApplication extends Application {
     public void onCreate() {
 
         super.onCreate();
+        DogTrainerDataModel.init(this, "trainer.json");
+
     }
 
 

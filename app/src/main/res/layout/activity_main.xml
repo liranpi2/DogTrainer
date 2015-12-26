@@ -8,16 +8,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".Controller.MainActivity">
 
-    <Button android:text="@string/ButtonText"
+<!--    <Button android:text="@string/ButtonText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/button_id" />
+        android:id="@+id/button_id" />-->
 
-    <ListView
-        android:id="@+id/questionlist"
+    <!--<ListView-->
+        <!--android:id="@+id/questionlist"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content">
+        <com.main.trainer.dogtrainer.Controller.QuestionsManager
+            android:id="@+id/questionsList"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 </LinearLayout>

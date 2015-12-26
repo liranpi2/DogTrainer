@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.main.trainer.dogtrainer.View.Questions.Question
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,18 +8,7 @@
         android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentLeft="true" />
 
-    <TextView
-        android:id="@+id/questionType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+</com.main.trainer.dogtrainer.View.Questions.Question>
 
-</LinearLayout>
-<!--
-
--->

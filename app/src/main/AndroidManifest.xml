@@ -9,9 +9,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        android:name=".DogTrainerApplication">
+        android:name=".Model.DogTrainerApplication">
         <activity
-            android:name=".MainActivity"
+            android:name=".Controller.MainActivity"
             android:label="@string/app_name" >
             <meta-data android:name="com.google.android.apps.drive.APP_ID" android:value="352195573043-m0bk67mq00iktd62rsjblrj800lkq0q5.apps.googleusercontent.com" />
             <intent-filter>

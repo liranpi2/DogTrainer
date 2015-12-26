@@ -1,13 +1,21 @@
-package com.main.trainer.dogtrainer;
+package com.main.trainer.dogtrainer.Model;
 
+import android.os.Environment;
+
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.List;
 
 /**
  * Created by Spider on 11/21/2015.
  */
-public class Response {
+public class JsonData {
 
-
+    private Data mData;
     /**
      * id : 1.0
      * question_male : תאריך תחילת אבחון
@@ -19,14 +27,29 @@ public class Response {
      * comment :
      */
 
-    private List<QuestionsEntity> questions;
+
+
+    public JsonData(String fileName) {
+        try {
+            Gson gson = new Gson();
+            JsonReader reader = new JsonReader(new FileReader(Environment.getExternalStorageDirectory()
+                    + File.separator+"DogTrainer"+File.separator+fileName));
+            mData = gson.fromJson(reader, Data.class);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setQuestions(List<QuestionsEntity> questions) {
-        this.questions = questions;
+        mData.questions = questions;
     }
 
     public List<QuestionsEntity> getQuestions() {
-        return questions;
+        return mData.questions;
+    }
+
+    private class Data{
+        private List<QuestionsEntity> questions;
     }
 
     public static class QuestionsEntity {
@@ -41,34 +64,6 @@ public class Response {
 
         public void setId(double id) {
             this.id = id;
-        }
-
-        public void setQuestion_male(String question_male) {
-            this.question_male = question_male;
-        }
-
-        public void setQuestion_female(String question_female) {
-            this.question_female = question_female;
-        }
-
-        public void setAnswer(String answer) {
-            this.answer = answer;
-        }
-
-        public void setOptions(String options) {
-            this.options = options;
-        }
-
-        public void setReference_id(int reference_id) {
-            this.reference_id = reference_id;
-        }
-
-        public void setCategory(String category) {
-            this.category = category;
-        }
-
-        public void setComment(String comment) {
-            this.comment = comment;
         }
 
         public double getId() {
