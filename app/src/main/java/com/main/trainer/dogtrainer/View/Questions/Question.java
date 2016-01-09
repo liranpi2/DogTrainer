@@ -13,13 +13,13 @@ import com.main.trainer.dogtrainer.R;
  * Created by Eli on 26/12/2015.
  */
 public abstract class Question extends RelativeLayout{
-    protected Context context;
+
     private QuestionListener mListener;
     protected JsonData.QuestionsEntity mQuestionEntity;
 
     public Question(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
+
     }
 
     public JsonData.QuestionsEntity getQuestionEntity() {

@@ -21,26 +21,31 @@ public class QuestionsFactory {
         combo
     }
     public static Question getQuestion(Context context, JsonData.QuestionsEntity questionsEntity) {
-        eQuestionsType type = eQuestionsType.valueOf(questionsEntity.getAnswer());
-        Question question = null;
-        switch (type) {
-            case text:
-                question= QuestionText.create(context);
-                break;
-            case checkbox:
-                question = QuestionCheckbox.create(context);
-                break;
-            case radio:
-                break;
-            case date:
-                break;
-            case image:
-                break;
-            case combo:
-                break;
-        }
-        question.setQuestionEntity(questionsEntity);
-        return question;
-    }
+        try {
+            eQuestionsType type = eQuestionsType.valueOf(questionsEntity.getAnswer());
+            Question question = null;
+            switch (type) {
+                case text:
+                    question = QuestionText.create(context);
+                    break;
+                case checkbox:
+                    question = QuestionCheckbox.create(context);
+                    break;
+                case radio:
+                    break;
+                case date:
+                    break;
+                case image:
+                    break;
+                case combo:
+                    break;
+            }
+            question.setQuestionEntity(questionsEntity);
+            return question;
 
+        } catch (Exception ex) {
+            System.out.println("error: " + ex.getMessage());
+        }
+        return null;
+    }
 }

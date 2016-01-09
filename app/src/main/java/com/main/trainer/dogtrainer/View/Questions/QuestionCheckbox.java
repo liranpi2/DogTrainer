@@ -27,10 +27,9 @@ public class QuestionCheckbox extends Question {
         super.onFinishInflate();
         mText = (TextView) findViewById(R.id.questionTextCheckbox);
         findViewById(R.id.done_button1).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onDone(mQuestionEntity.getReference_id());
-            }
+           public void onClick(View v) {
+               onDone(mQuestionEntity.getReference_id());
+           }
         });
     }
 
