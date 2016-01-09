@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.main.trainer.dogtrainer.Model.JsonData;
 import com.main.trainer.dogtrainer.View.Questions.Question;
+import com.main.trainer.dogtrainer.View.Questions.QuestionCheckbox;
 import com.main.trainer.dogtrainer.View.Questions.QuestionText;
 
 /**
@@ -13,11 +14,11 @@ public class QuestionsFactory {
 
     public enum eQuestionsType{
         text,
-        CheckBox,
-        Radio,
-        Date,
-        Image,
-        Combo
+        checkbox,
+        radio,
+        date,
+        image,
+        combo
     }
     public static Question getQuestion(Context context, JsonData.QuestionsEntity questionsEntity) {
         eQuestionsType type = eQuestionsType.valueOf(questionsEntity.getAnswer());
@@ -26,15 +27,16 @@ public class QuestionsFactory {
             case text:
                 question= QuestionText.create(context);
                 break;
-            case CheckBox:
+            case checkbox:
+                question = QuestionCheckbox.create(context);
                 break;
-            case Radio:
+            case radio:
                 break;
-            case Date:
+            case date:
                 break;
-            case Image:
+            case image:
                 break;
-            case Combo:
+            case combo:
                 break;
         }
         question.setQuestionEntity(questionsEntity);

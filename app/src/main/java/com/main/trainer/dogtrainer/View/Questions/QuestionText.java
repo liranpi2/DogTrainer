@@ -28,12 +28,8 @@ public class QuestionText extends Question {
             public void onClick(View v) {
                 onDone(mQuestionEntity.getReference_id());
             }
-
-
         });
     }
-
-
 
     public static QuestionText create(Context context) {
         return (QuestionText) inflate(context, R.layout.each_list_item_text,null);

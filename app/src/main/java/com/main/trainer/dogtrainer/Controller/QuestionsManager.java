@@ -38,7 +38,7 @@ public class QuestionsManager extends LinearLayout implements QuestionListener{
 
     @Override
     public void onQuestionFinish(Question question) {
-        clearIfNeeded(question);
+        //clearIfNeeded(question);
         JsonData.QuestionsEntity questionData;
         if(question == null){
             questionData = mDogTrainerDataModel.getFirstQuestion();

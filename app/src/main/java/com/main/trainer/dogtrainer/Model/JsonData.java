@@ -21,7 +21,7 @@ public class JsonData {
      * question_male : תאריך תחילת אבחון
      * question_female :
      * answer : datetime
-     * options :
+     * options : []
      * reference_id : 0
      * category : תיאור הכלב
      * comment :
@@ -57,7 +57,7 @@ public class JsonData {
         private String question_male;
         private String question_female;
         private String answer;
-        private String options;
+        private List<String> options;
         private double reference_id;
         private String category;
         private String comment;
@@ -82,7 +82,7 @@ public class JsonData {
             return answer;
         }
 
-        public String getOptions() {
+        public List<String> getOptions() {
             return options;
         }
 

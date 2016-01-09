@@ -13,16 +13,17 @@ import com.main.trainer.dogtrainer.R;
  * Created by Eli on 26/12/2015.
  */
 public abstract class Question extends RelativeLayout{
-
+    protected Context context;
     private QuestionListener mListener;
     protected JsonData.QuestionsEntity mQuestionEntity;
-    public Question(Context context, AttributeSet attrs) {
 
+    public Question(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
-    public static Question create(Context context) {
-        return (Question) inflate(context, R.layout.each_list_item,null);
+    public JsonData.QuestionsEntity getQuestionEntity() {
+        return mQuestionEntity;
     }
 
     public void setQuestionEntity(JsonData.QuestionsEntity questionsEntity) {
@@ -32,9 +33,6 @@ public abstract class Question extends RelativeLayout{
 
     public void setListener(QuestionListener questionListener) {
         mListener =questionListener;
-    }
-    public JsonData.QuestionsEntity getQuestionEntity() {
-        return mQuestionEntity;
     }
 
     protected void onDone(double referenceId) {
