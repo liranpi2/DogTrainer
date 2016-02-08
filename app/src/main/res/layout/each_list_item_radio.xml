@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.main.trainer.dogtrainer.View.Questions.QuestionRadio
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/questionText"
+        android:id="@+id/questionTextRadio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:id="@+id/questionType"
+        android:layout_alignParentLeft="true" />
+    <LinearLayout
+        android:id="@+id/radioLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionRadio"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/questionTextRadio"
+        android:orientation="horizontal" >
 
-</LinearLayout>
+        <Button
+            android:id="@+id/done_button2"
+            android:text="done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="0dp" />
+
+    </LinearLayout>
+</com.main.trainer.dogtrainer.View.Questions.QuestionRadio>

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.main.trainer.dogtrainer.Model.JsonData;
 import com.main.trainer.dogtrainer.View.Questions.Question;
 import com.main.trainer.dogtrainer.View.Questions.QuestionCheckbox;
+import com.main.trainer.dogtrainer.View.Questions.QuestionRadio;
 import com.main.trainer.dogtrainer.View.Questions.QuestionText;
 
 /**
@@ -32,6 +33,7 @@ public class QuestionsFactory {
                     question = QuestionCheckbox.create(context);
                     break;
                 case radio:
+                    question = QuestionRadio.create(context);
                     break;
                 case date:
                     break;

@@ -6,40 +6,41 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
-import com.main.trainer.dogtrainer.R;
 
 import com.main.trainer.dogtrainer.Model.JsonData;
+import com.main.trainer.dogtrainer.R;
 
 import java.util.List;
 
-
-
-public class QuestionCheckbox extends Question {
-
+/**
+ * Created by Spider on 2/8/2016.
+ */
+public class QuestionRadio  extends Question{
     private TextView mText;
     private String selected = "" ;
-    public QuestionCheckbox(Context context, AttributeSet attrs) {
+
+    public QuestionRadio(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mText = (TextView) findViewById(R.id.questionTextCheckbox);
-        findViewById(R.id.done_button1).setOnClickListener(new OnClickListener() {
+        mText = (TextView) findViewById(R.id.questionTextRadio);
+        findViewById(R.id.done_button2).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 onDone(mQuestionEntity.getReference_id());
             }
         });
     }
 
-    public static QuestionCheckbox create(Context context) {
-        return (QuestionCheckbox) inflate(context, R.layout.each_list_item_checkbox, null);
+    public static QuestionRadio create(Context context) {
+        return (QuestionRadio) inflate(context, R.layout.each_list_item_radio, null);
 
     }
 
-    @Override
     public void setQuestionEntity(JsonData.QuestionsEntity questionsEntity) {
         super.setQuestionEntity(questionsEntity);
         mText.setText(questionsEntity.getQuestion_male());
@@ -47,38 +48,38 @@ public class QuestionCheckbox extends Question {
 
         if (options != null)
         {
-            final LinearLayout ll = (LinearLayout) findViewById(R.id.checkboxLayout);
+            final LinearLayout ll = (LinearLayout) findViewById(R.id.radioLayout);
 
             for(int i=0;i<options.size();i++)
             {
-              final int index = i;
-                final CheckBox cb = new CheckBox(getContext());
-                cb.setText(options.get(i));
-                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                final int index = i;
+                final RadioButton rb = new RadioButton(getContext());
+                rb.setText(options.get(i));
+                rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        // perform logic
+                        if (isChecked) {
+                            // perform logic
 
-                        selected = options.get(index);
-                        CheckChange(ll,cb);
-                    }
+                            selected = options.get(index);
+                            CheckChange(ll,rb);
+                        }
 
                     }
                 });
-                ll.addView(cb);
+                ll.addView(rb);
 
             }
 
         }
     }
 
-    private void CheckChange(LinearLayout layout, CheckBox cb)
+    private void CheckChange(LinearLayout layout, RadioButton rb)
     {
         for (int i = 0; i < layout.getChildCount(); i++) {
             View v = layout.getChildAt(i);
-            if (v instanceof CheckBox && v != cb) {
-                ((CheckBox) v).setChecked(false);
+            if (v instanceof RadioButton && v != rb) {
+                ((RadioButton) v).setChecked(false);
                 //validate your EditText here
             }
         }
