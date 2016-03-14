@@ -53,7 +53,7 @@ public class QuestionDate extends Question {
         // handle set date click
         findViewById(R.id.date_button2).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                activity.ShowDialogResult(999,MainActivity.this);
+                activity.ShowDialogResult(999,QuestionDate.this);
             }
         });
 
@@ -80,5 +80,10 @@ public class QuestionDate extends Question {
 
         mText.setText(questionsEntity.getQuestion_male());
 
+    }
+
+    public void setDate(int year, int monthOfYear, int dayOfMonth) {
+        //TODO: update the view
+        Toast.makeText(getContext(),year + "/" + monthOfYear + "/" +dayOfMonth,Toast.LENGTH_LONG).show();
     }
 }
