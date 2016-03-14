@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<com.main.trainer.dogtrainer.View.Questions.QuestionDate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/questionText"
+        android:id="@+id/questionTextDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
          />
 
+    <LinearLayout
+        android:id="@+id/DateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTextRadio"
+        android:orientation="horizontal" >
+
     <Button
-        android:id="@+id/btnChangeDate"
+        android:id="@+id/date_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Date" />
+        android:text="Set Date" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/done_button3"
+        android:text="1/1/1900"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/done_button3"
+        android:text="done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="0dp" />
+
+
+
+
+    </LinearLayout>
+</com.main.trainer.dogtrainer.View.Questions.QuestionDate>

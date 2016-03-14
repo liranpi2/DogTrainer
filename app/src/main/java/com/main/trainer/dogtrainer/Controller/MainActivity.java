@@ -1,15 +1,20 @@
 package com.main.trainer.dogtrainer.Controller;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.drive.DriveId;
@@ -19,6 +24,7 @@ import com.main.trainer.dogtrainer.Model.DogTrainerDataModel;
 import com.main.trainer.dogtrainer.R;
 import com.main.trainer.dogtrainer.Model.JsonData;
 import com.main.trainer.dogtrainer.View.Questions.Question;
+import com.main.trainer.dogtrainer.View.Questions.QuestionDate;
 import com.main.trainer.dogtrainer.View.QuestionsFactory;
 
 import java.io.BufferedReader;
@@ -32,6 +38,7 @@ public class MainActivity extends ActionBarActivity {
     private static final int LOCAL_REQ_OPEN = 5 ;
     private static final int DRIVE_REQ_OPEN = 1 ;
     GoogleApiClient mGoogleApiClient;
+    QuestionDate current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +189,29 @@ public class MainActivity extends ActionBarActivity {
         System.err.println("Liran Activity - onDestroy()");
     }
 
+    @SuppressWarnings("deprecation")
+    public void ShowDialogResult(int i, QuestionDate question) {
+        current = question;
+        showDialog(i);
+        Toast.makeText(getApplicationContext(), "asdf", Toast.LENGTH_SHORT)
+                .show();
+    }
+    protected Dialog onCreateDialog(int id) {
+        if (id == 999) {
+            // create newDialogDate
+        }
+        return null;
+    }
+    private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
+            // TODO Auto-generated method stub
+            // arg1 = year
+            // arg2 = month
+            // arg3 = day
+            current.showDate(arg1, arg2+1, arg3);
+        }
+    };
 
 //    @Override
 //    public void onConnected(Bundle bundle) {

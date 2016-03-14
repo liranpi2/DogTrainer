@@ -5,4 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="CustomTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionMenuTextColor">#ffffff</item>
+        <item name="android:datePickerStyle">@android:style/Widget.DatePicker</item>
+    </style>
+
 </resources>
