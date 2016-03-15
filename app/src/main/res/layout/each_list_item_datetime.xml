@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.main.trainer.dogtrainer.View.Questions.QuestionDate
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/questionText">
 
     <TextView
         android:id="@+id/questionTextDate"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
          />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/DateLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionTextRadio"
+        android:layout_below="@+id/questionTextDate"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/done_button3"
             android:text="done"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1/1/1900"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_toRightOf="@id/done_button3"
+            android:layout_toLeftOf="@+id/date_button2"
+            android:text="1/1/1900" />
 
         <Button
-            android:id="@+id/date_button2"
+            android:id="@id/date_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Date" />
+            android:text="Set Date"
+            android:layout_alignParentRight="true"
+            />
 
-    </LinearLayout>
+    </RelativeLayout>
 </com.main.trainer.dogtrainer.View.Questions.QuestionDate>

@@ -2,6 +2,7 @@ package com.main.trainer.dogtrainer.View.Questions;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.main.trainer.dogtrainer.Controller.QuestionListener;
