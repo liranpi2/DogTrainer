@@ -15,18 +15,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionText"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/done_button"
+            android:text="done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
         <EditText
             android:id="@+id/questionType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="80"
             />
-        <Button
-            android:id="@+id/done_button"
-            android:text="done"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"/>
+
     </LinearLayout>
 
 

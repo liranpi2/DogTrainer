@@ -206,12 +206,6 @@ public class MainActivity extends ActionBarActivity implements DatePickerDialog.
         Toast.makeText(getApplicationContext(), "asdf", Toast.LENGTH_SHORT)
                 .show();
     }
-    protected Dialog onCreateDialog(int id) {
-        if (id == 999) {
-            // create newDialogDate
-        }
-        return null;
-    }
     private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
@@ -258,7 +252,6 @@ public class MainActivity extends ActionBarActivity implements DatePickerDialog.
 //    }
 public static class DatePickerFragment extends DialogFragment {
 
-
         private DatePickerDialog.OnDateSetListener mListner;
 
         public DatePickerFragment() {
@@ -280,10 +273,10 @@ public static class DatePickerFragment extends DialogFragment {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), mListner, year, month, day);
+            // android.R.style.Theme_Holo_Light_Dialog
+            return new DatePickerDialog(getActivity(),android.R.style.Theme_Holo_Light_Dialog, mListner, year, month, day);
         }
     }
-
 }
 
 

@@ -23,6 +23,7 @@ import java.util.Calendar;
 
 public class QuestionDate extends Question {
 
+    private TextView mDate;
     private TextView mText;
     private MainActivity activity;
     private DatePicker datePicker;
@@ -77,13 +78,12 @@ public class QuestionDate extends Question {
     @Override
     public void setQuestionEntity(JsonData.QuestionsEntity questionsEntity) {
         super.setQuestionEntity(questionsEntity);
-
         mText.setText(questionsEntity.getQuestion_male());
-
     }
 
     public void setDate(int year, int monthOfYear, int dayOfMonth) {
-        //TODO: update the view
-        Toast.makeText(getContext(),year + "/" + monthOfYear + "/" +dayOfMonth,Toast.LENGTH_LONG).show();
+        mDate =  (TextView) findViewById(R.id.textView3);
+        mDate.setText(year + "/" + monthOfYear + "/" +dayOfMonth);
+        //Toast.makeText(getContext(),year + "/" + monthOfYear + "/" +dayOfMonth,Toast.LENGTH_LONG).show();
     }
 }

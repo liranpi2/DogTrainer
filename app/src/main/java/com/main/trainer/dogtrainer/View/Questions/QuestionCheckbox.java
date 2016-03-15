@@ -3,6 +3,7 @@ package com.main.trainer.dogtrainer.View.Questions;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -57,15 +58,19 @@ public class QuestionCheckbox extends Question {
                 cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        // perform logic
+                        if (isChecked) {
+                            // perform logic
 
-                        selected = options.get(index);
-                        CheckChange(ll,cb);
-                    }
+                            selected = options.get(index);
+                            CheckChange(ll, cb);
+                        }
 
                     }
                 });
+                cb.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+
                 ll.addView(cb);
 
             }
