@@ -2,6 +2,7 @@ package com.main.trainer.dogtrainer.Controller;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,11 +33,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class MainActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
+public class MainActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener, Serializable {
+
+    private static final String LISTENER = "LISTENER";
     private static final int LOCAL_REQ_OPEN = 5 ;
     private static final int DRIVE_REQ_OPEN = 1 ;
     GoogleApiClient mGoogleApiClient;
@@ -195,6 +199,9 @@ public class MainActivity extends ActionBarActivity implements DatePickerDialog.
     public void ShowDialogResult(int i, QuestionDate question) {
         current = question;
         DialogFragment newFragment = new DatePickerFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(LISTENER, this);
+        newFragment.setArguments(args);
         newFragment.show(getSupportFragmentManager(), "datePicker");
         Toast.makeText(getApplicationContext(), "asdf", Toast.LENGTH_SHORT)
                 .show();
@@ -249,7 +256,20 @@ public class MainActivity extends ActionBarActivity implements DatePickerDialog.
 //        System.out.println("connection failed");
 //
 //    }
-public class DatePickerFragment extends DialogFragment {
+public static class DatePickerFragment extends DialogFragment {
+
+
+        private DatePickerDialog.OnDateSetListener mListner;
+
+        public DatePickerFragment() {
+
+        }
+
+        @Override
+        public void setArguments(Bundle args) {
+            super.setArguments(args);
+            mListner = (DatePickerDialog.OnDateSetListener) args.get(LISTENER);
+        }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -260,7 +280,7 @@ public class DatePickerFragment extends DialogFragment {
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(MainActivity.this, MainActivity.this, year, month, day);
+            return new DatePickerDialog(getActivity(), mListner, year, month, day);
         }
     }
 
